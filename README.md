@@ -39,15 +39,14 @@ producto). Dos cosas que no son obvias:
 - **Va en JPEG, no en WebP.** El previsualizador de WhatsApp no decodifica WebP
   de forma confiable, y una tarjeta que no carga es peor que no tenerla.
 
-## Lo que falta para que sirva
+## Cómo se contacta
 
-**El número de WhatsApp.** Los dos botones apuntan a `wa.me/5210000000000`, que
-es un marcador de posición. Escribir por WhatsApp es la única acción que la
-página pide: mientras el número no sea el real, publicarla pierde todos los
-contactos.
+WhatsApp `52 5618622447` y correo `bujiopsapp@gmail.com`. El número está en seis
+lugares del HTML (los botones y el pie); si cambia, se cambian todos.
 
-Se cambia en `index.html`, en los dos `href` que contienen `wa.me`, en formato
-internacional sin signos: `52` + `1` + los diez dígitos.
+**Ojo con el formato del link de WhatsApp.** Para México se usa `wa.me/52` + los
+diez dígitos. El prefijo `1` que se usaba antes (`521…`) ya no hace falta en la
+mayoría de los números; si alguno no abre la conversación, se prueba con él.
 
 ## Por qué está hecha así
 
@@ -68,7 +67,18 @@ internacional sin signos: `52` + `1` + los diez dígitos.
   página **carga con 182 KB**; recorrerla entera son ~640 KB, que sólo se paga
   si alguien se queda a verla toda.
 - **La paleta y los contrastes son los del CRM.** Quien entra por aquí tiene que
-  aterrizar en el producto sin sentir que cambió de empresa.
+  aterrizar en el producto sin sentir que cambió de empresa. El mínimo del texto
+  secundario **cambia con la superficie**: en fondo claro es `slate-500`, sobre
+  `slate-900/950` es `slate-400`. El par se invierte y usar el mismo en las dos
+  reprueba en una — ya pasó una vez aquí.
+- **Las bandas alternan de tono** (oscuro, claro, papel, oscuro…). La primera
+  versión era blanca de arriba abajo y por eso se veía sosa: sin contraste
+  tonal, el ojo no tiene dónde despertar.
+- **Las capturas van dentro de un marco de ventana.** Así dejan de leerse como
+  una imagen pegada y se leen como una pantalla. Es el recurso más barato y el
+  de más efecto de todos los que usa este mercado.
+- **Los precios salen del catálogo del producto**, no de la nada. Si cambian
+  allá, cambian aquí.
 
 ## Antes de dar por buena una versión
 
