@@ -1,0 +1,3 @@
+# Nada que ignorar: no hay build ni dependencias. Sólo la basura del sistema.
+.DS_Store
+Thumbs.db

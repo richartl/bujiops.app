@@ -1,0 +1,146 @@
+/* Sistema heredado del CRM. La vitrina no es una isla de marca: quien entra
+   por aquí tiene que aterrizar en el mismo producto sin sentir que cambió de
+   empresa.
+
+   Pares de contraste ya medidos y fijados en el sistema:
+     slate-950 sobre amber-500 → 9.39 ✅  (el par fuerte de la marca)
+     blanco    sobre amber-500 → 2.15 ❌  (nunca)
+   En fondo claro, el secundario mínimo es slate-500. */
+:root{
+  --t:#020617;        /* slate-950 */
+  --t2:#334155;       /* slate-700 */
+  --t3:#64748b;       /* slate-500 — el mínimo legible en fondo claro */
+  --linea:#e2e8f0;    /* slate-200 */
+  --papel:#f8fafc;    /* slate-50 */
+  --am:#f59e0b;       /* amber-500 — marca */
+  --am1:#fffbeb;      /* amber-50 */
+  --am7:#b45309;      /* amber-700 */
+  --em:#059669;       /* emerald-600 */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+/* Sin tipografía web a propósito. El link llega por WhatsApp y se abre con
+   datos móviles: una familia descargada cuesta entre 40 y 90 KB y un salto de
+   texto al cargar, justo en los segundos que decide si se queda. La pila del
+   sistema cuesta 0 KB y se ve nativa en cada teléfono. */
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  color:var(--t);background:#fff;font-size:17px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+
+.w{max-width:1140px;margin:0 auto;padding:0 22px}
+
+/* ── Navegación ── */
+nav{display:flex;justify-content:space-between;align-items:center;padding-block:20px;gap:16px}
+.marca{display:flex;align-items:center;gap:9px;font-weight:800;font-size:20px;letter-spacing:-.02em}
+.chispa{width:13px;height:13px;background:var(--am);border-radius:50% 50% 50% 3px;transform:rotate(-20deg);flex:none}
+.nav-sec{color:var(--t2);text-decoration:none;font-weight:600;font-size:15px}
+
+/* ── Tipografía de vitrina ──
+   Mucho más aireada que el CRM: allá la densidad es virtud, aquí es ruido. */
+h1{font-size:clamp(34px,5.2vw,54px);line-height:1.06;letter-spacing:-.035em;font-weight:800;max-width:16ch}
+h2{font-size:clamp(27px,3.6vw,38px);line-height:1.12;letter-spacing:-.03em;font-weight:800;max-width:18ch}
+h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
+.entrada{margin-top:20px;font-size:clamp(18px,2vw,21px);line-height:1.5;color:var(--t2);max-width:44ch}
+.pie{margin-top:14px;font-size:15px;color:var(--t3)}
+.dice{font-size:17px;line-height:1.55;color:var(--t2);max-width:60ch}
+
+/* ── Un solo botón, repetido ──
+   Dos llamadas que compiten no duplican el registro: lo parten. */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--am);color:var(--t);      /* 9.39:1 */
+  font-weight:700;font-size:17px;padding:16px 28px;border-radius:11px;
+  text-decoration:none;border:0;cursor:pointer;
+}
+.btn:hover{background:#fbbf24}
+.btn-fila{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:18px}
+.btn-sec{color:var(--t2);text-decoration:none;font-weight:600;font-size:16px;border-bottom:1px solid var(--linea)}
+
+/* ── Bloques: una idea por bloque, 60–90px de aire ── */
+.blq{padding-block:76px;border-top:1px solid var(--linea)}
+.blq-papel{background:var(--papel);border-top:1px solid var(--linea)}
+
+/* El encabezado va en dos columnas: el título respeta su medida corta y la
+   explicación ocupa el ancho que sobraba, en vez de dejar medio bloque vacío. */
+.enc{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:44px;align-items:end}
+.enc h2{max-width:16ch}
+.enc p{font-size:19px;line-height:1.5;color:var(--t2);max-width:42ch;padding-bottom:5px}
+
+/* ── Marcos de captura ──
+   El producto real, no una ilustración. El marco existe para que se lea como
+   pantalla y no como imagen suelta. */
+.marco{
+  border:1px solid var(--linea);border-radius:14px;overflow:hidden;
+  box-shadow:0 24px 50px -28px rgba(2,6,23,.42);background:#fff;
+}
+.marco-osc{border-color:#1e293b}
+.tel{
+  width:100%;max-width:330px;background:var(--t);border-radius:34px;padding:9px;
+  box-shadow:0 34px 64px -26px rgba(2,6,23,.5);
+}
+.tel img{border-radius:26px}
+.tel-corto img{border-radius:26px}
+
+/* Recorte: enseña sólo la parte de arriba de una captura larga y la desvanece,
+   para que se lea "esto sigue" en vez de "esto se cortó". */
+.recorte{position:relative;overflow:hidden;--vela:#fff}
+.blq-papel .recorte{--vela:var(--papel)}
+.recorte::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:80px;
+  background:linear-gradient(transparent,var(--vela));
+}
+/* Última, para ganarle a las anteriores: una captura del tema oscuro se
+   desvanece en oscuro. */
+.marco-osc.recorte{--vela:#020617}
+
+/* ── Cierre ── */
+.cierre{background:var(--t);color:#fff;padding-block:84px;text-align:center}
+.cierre h2{color:#fff;margin:0 auto;max-width:20ch}
+.cierre p{margin:18px auto 0;color:#cbd5e1;font-size:19px;max-width:46ch}
+footer{padding-block:30px;border-top:1px solid var(--linea);color:var(--t3);font-size:14.5px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer a{color:var(--t3)}
+
+/* ── Nota honesta sobre el estado del alta ──
+   Por ahora el alta la hacemos nosotros, taller por taller. El producto ya lo
+   dice con esas palabras cuando alguien intenta registrarse solo:
+   "Escríbenos y te damos de alta nosotros". */
+.cierre p.aviso,
+.aviso{
+  margin-top:16px;display:inline-flex;gap:9px;align-items:flex-start;
+  background:var(--am1);border:1px solid #fde68a;border-radius:10px;
+  padding:11px 14px;font-size:14.5px;color:var(--am7);max-width:46ch;line-height:1.45;
+  text-align:left;
+}
+
+@media(max-width:860px){
+  .blq{padding-block:56px}
+  .cierre{padding-block:64px}
+  .enc{grid-template-columns:1fr;gap:14px}
+  .enc p{padding-bottom:0}
+  body{font-size:16px}
+}
+
+/* ── Rubros ───────────────────────────────────────────────────────────────
+   El CRM no es de un giro. Los tres modos de enseñarlo comparten estas
+   piezas; cada página elige uno (ver `rubros-1/2/3.html`). */
+.rubro-rejilla{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rubro-rejilla figure{min-width:0}
+.rubro-rejilla figcaption{margin-top:11px;font-size:15px;font-weight:700}
+.rubro-rejilla figcaption span{display:block;font-weight:500;color:var(--t3);font-size:14px;margin-top:2px}
+
+/* Los rubros como texto: barato, y el que no está se nota. */
+.rubro-lista{margin-top:26px;display:flex;flex-wrap:wrap;gap:9px}
+.rubro-lista li{list-style:none;border:1px solid var(--linea);border-radius:999px;
+  padding:8px 15px;font-size:15.5px;font-weight:600;color:var(--t2);background:#fff}
+.rubro-lista li.tuyo{background:var(--am1);border-color:#fcd34d;color:var(--am7)}
+
+.rubro-par{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+
+@media(max-width:860px){
+  .rubro-rejilla{grid-template-columns:1fr;gap:26px}
+  .rubro-par{grid-template-columns:1fr;gap:22px}
+}

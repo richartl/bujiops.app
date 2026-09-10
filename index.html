@@ -1,0 +1,145 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BujiOps — el trabajo de tu taller, en una sola pantalla</title>
+<meta name="description" content="CRM para talleres de servicio: motos, bicicletas, costura, instrumentos, carpintería, celulares. Lleva el control del trabajo y tu cliente sigue su equipo desde su teléfono.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='%23f59e0b'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="base.css">
+<!--
+  ⚠ FALTA EL NÚMERO DE WHATSAPP.
+
+  Los dos botones apuntan a `wa.me/5210000000000`, que es un marcador de
+  posición. Escribir por WhatsApp es la ÚNICA acción que esta página pide:
+  mientras el número no sea el real, publicarla pierde todos los contactos.
+
+  Se cambia en los dos `href` de abajo (busca `wa.me`), en formato
+  internacional sin signos: 52 + 1 + los diez dígitos.
+-->
+<style>
+.hero{text-align:center;padding-block:44px 0}
+.hero h1{margin:0 auto;max-width:18ch}
+.hero .entrada{margin:22px auto 0;max-width:52ch}
+.hero .btn-fila{justify-content:center}
+.hero .pie{margin-top:16px}
+.vitrina-ancha{margin-top:48px;padding:0 22px}
+.vitrina-ancha .marco{max-width:1300px;margin:0 auto}
+.medidas{margin-top:24px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linea);
+  border:1px solid var(--linea);border-radius:12px;overflow:hidden;max-width:1300px;margin-inline:auto}
+.medidas div{background:#fff;padding:18px 20px}
+.medidas b{display:block;font-size:15px;font-weight:700}
+.medidas span{display:block;margin-top:5px;font-size:14.5px;color:var(--t3);line-height:1.4}
+.par{margin-top:38px;display:grid;grid-template-columns:1fr 330px;gap:56px;align-items:center}
+.par-inv{grid-template-columns:330px 1fr}
+.temas{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.temas figcaption{margin-top:10px;font-size:14.5px;color:var(--t3)}
+@media(max-width:860px){
+  .hero{padding-block:26px 0}
+  .vitrina-ancha{margin-top:32px;padding:0 16px}
+  .medidas{grid-template-columns:1fr}
+  .par,.par-inv{grid-template-columns:1fr;gap:28px}
+  .temas{grid-template-columns:1fr}
+}
+</style></head><body>
+
+<div class="w"><nav>
+  <span class="marca"><span class="chispa"></span>BujiOps</span>
+  <a class="nav-sec" href="#alta">Escríbenos</a>
+</nav></div>
+
+<header class="hero">
+  <div class="w">
+    <h1>El trabajo de tu taller, en una sola pantalla.</h1>
+    <p class="entrada">Qué entró, quién lo está atendiendo, qué lleva días esperando
+      una pieza y cuánto dinero hay parado en cada estado.</p>
+    <div class="btn-fila"><a class="btn" href="https://wa.me/5210000000000">Escríbenos por WhatsApp</a></div>
+    <p class="pie">Hoy damos de alta taller por taller, contigo. Sin tarjeta.</p>
+  </div>
+  <div class="vitrina-ancha">
+    <div class="marco"><picture><source media="(max-width:640px)" srcset="img/real-tablero--cielo--movil.webp" width="390" height="603"><img src="img/real-tablero--cielo.webp" alt="El tablero del taller con cuatro columnas: Recibido, En proceso, Esperando pieza y Listo, cada una con su conteo de equipos y su total en dinero" width="1780" height="627"></picture></div>
+    <div class="medidas">
+      <div><b>Cuántos hay en cada estado</b><span>El número está en la columna. No hay que contar tarjetas.</span></div>
+      <div><b>Cuánto dinero hay ahí</b><span>Cada columna trae su total. Sabes qué está por cobrarse.</span></div>
+      <div><b>Qué lleva días parado</b><span>La fecha de ingreso está en la tarjeta, no escondida adentro.</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="blq blq-papel">
+  <div class="w">
+    <div class="enc"><h2>El mismo tablero, sea lo que sea que repares.</h2>
+      <p>No es un sistema para un giro. Estas tres son la misma pantalla, con el
+        trabajo de tres talleres distintos.</p></div>
+    <div class="rubro-rejilla">
+      <figure><div class="marco"><img loading="lazy" decoding="async" src="img/rubro--motos.webp" alt="El tablero de un taller de motocicletas: columnas Recibida y En taller, con motos Italika, Honda y Yamaha" width="448" height="451"></div>
+        <figcaption>Taller de motos<span>Recibida · En taller · Espera refacción · Lista</span></figcaption></figure>
+      <figure><div class="marco"><img loading="lazy" decoding="async" src="img/rubro--costura.webp" alt="El tablero de un taller de máquinas de coser: columnas Recibida y En reparación, con máquinas Singer, Brother y Juki" width="448" height="451"></div>
+        <figcaption>Máquinas de coser<span>Recibida · En reparación · Espera refacción · Lista</span></figcaption></figure>
+      <figure><div class="marco"><img loading="lazy" decoding="async" src="img/rubro--celulares.webp" alt="El tablero de un taller de celulares: columnas Recibido y En diagnóstico, con equipos Samsung, Lenovo y Xiaomi" width="448" height="451"></div>
+        <figcaption>Celulares y cómputo<span>Recibido · En diagnóstico · Espera refacción · Listo</span></figcaption></figure>
+    </div>
+    <ul class="rubro-lista"><li>Motocicletas</li><li>Bicicletas</li><li>Máquinas de coser</li><li>Instrumentos musicales</li><li>Carpintería</li><li>Celulares y cómputo</li><li>Electrodomésticos</li><li>Relojería</li><li>Maquinaria y herramienta</li></ul>
+    <p class="dice" style="margin-top:20px">Los estados los pones tú, con los nombres
+      que usa tu taller. No hay una lista fija que aprenderse.</p>
+  </div>
+</section>
+<section class="blq">
+  <div class="w">
+    <div class="enc"><h2>Y tu cliente deja de hablarte para preguntar.</h2>
+      <p>Cuando mueves la tarjeta, él lo ve. Le mandas un link por WhatsApp una
+        vez y ya no vuelve a llamar para saber cómo va.</p></div>
+    <div class="par">
+      <div>
+        <h3>Lo que él ve</h3>
+        <p class="dice" style="margin-top:10px">La última novedad de su equipo, qué
+          le están haciendo, cuánto va costando y cuánto lleva pagado. Con el
+          nombre y el color de tu taller — no ve nuestra marca, ve la tuya.</p>
+        <div class="marco" style="margin-top:22px;max-width:430px"><img loading="lazy" decoding="async" src="img/tel-identidad.webp" alt="El encabezado del seguimiento con el nombre del taller, su sucursal y el saludo al cliente" width="390" height="268"></div>
+      </div>
+      <div class="tel" style="justify-self:center"><img loading="lazy" decoding="async" src="img/tel-cuenta.webp" alt="La página de seguimiento en el teléfono del cliente: última novedad, servicios aplicados y el saldo con lo pagado y lo que falta" width="390" height="690"></div>
+    </div>
+  </div>
+</section>
+
+<section class="blq blq-papel">
+  <div class="w">
+    <div class="enc"><h2>Ya no se discute cuánto quedó a deber.</h2>
+      <p>Cada abono queda registrado con su fecha y su forma de pago, y el saldo
+        lo ve el cliente en el mismo link.</p></div>
+    <div class="par par-inv">
+      <div class="tel"><img loading="lazy" decoding="async" src="img/tel-historial.webp" alt="Historial de la visita: pago recibido por transferencia, ingreso al taller y diagnóstico inicial, cada uno con su fecha" width="390" height="425"></div>
+      <div>
+        <h3>Queda escrito quién hizo qué y cuándo</h3>
+        <p class="dice" style="margin-top:10px">Cuando alguien reclama, no es tu
+          palabra contra la suya. Está la fecha del ingreso, el diagnóstico y el
+          pago, en la misma línea de tiempo que él ya vio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blq">
+  <div class="w">
+    <div class="enc"><h2>Tu taller, con tu color.</h2>
+      <p>El mismo tablero, el tema que elijas. Los contrastes están medidos: se
+        lee igual de bien en los seis.</p></div>
+    <div class="temas">
+      <figure><div class="marco recorte" style="max-height:300px"><picture><source media="(max-width:640px)" srcset="img/real-tablero--cielo--movil.webp" width="390" height="603"><img loading="lazy" decoding="async" src="img/real-tablero--cielo.webp" alt="El tablero con el tema claro" width="1780" height="627"></picture></div><figcaption>Cielo</figcaption></figure>
+      <figure><div class="marco marco-osc recorte" style="max-height:300px"><picture><source media="(max-width:640px)" srcset="img/real-tablero--bujia--movil.webp" width="390" height="603"><img loading="lazy" decoding="async" src="img/real-tablero--bujia.webp" alt="El mismo tablero con el tema oscuro" width="1780" height="627"></picture></div><figcaption>Bujía</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="cierre" id="alta">
+  <div class="w">
+    <h2>Empieza con los equipos que tengas hoy adentro.</h2>
+    <p>Nos escribes, te damos de alta y capturas lo que esté en el taller.
+      Nada que configurar durante semanas. Si no te sirve, lo dejas.</p>
+    <div style="margin-top:30px"><a class="btn" href="https://wa.me/5210000000000">Escríbenos por WhatsApp</a></div>
+    <p class="aviso" style="margin-top:22px">Por ahora el alta la hacemos nosotros, mientras publicamos los textos legales de la plataforma. Nos escribes y en la misma conversación queda tu taller creado.</p>
+  </div>
+</section>
+
+<div class="w"><footer>
+  <span>BujiOps · CRM para talleres de servicio</span>
+  <span><a href="#alta">Contacto</a></span>
+</footer></div>
+</body></html>

@@ -1,0 +1,69 @@
+name: Publicar en GitHub Pages
+
+# La página es estática: lo que está en el repositorio es exactamente lo que se
+# sirve. No hay build. Lo único que este workflow agrega son dos revisiones que
+# atrapan los dos errores que de verdad pasan.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Una publicación a la vez, sin cancelar la que ya empezó: dejar Pages a medio
+# publicar es peor que esperar.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.desplegar.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Revisar que estén los archivos que la página necesita
+        run: |
+          set -euo pipefail
+          for archivo in index.html base.css; do
+            test -f "$archivo" || { echo "::error::falta $archivo"; exit 1; }
+          done
+          # Una imagen referenciada que no existe no rompe la página: deja un
+          # hueco blanco, y nadie lo nota hasta que lo ve un prospecto.
+          faltantes=0
+          for img in $(grep -oE '(src|srcset)="img/[^"]+"' index.html \
+                       | sed -E 's/.*"img\/(.*)"/\1/' | sort -u); do
+            if [ ! -f "img/$img" ]; then
+              echo "::error::index.html referencia img/$img y no existe"
+              faltantes=1
+            fi
+          done
+          [ "$faltantes" -eq 0 ]
+          echo "Peso de la página: $(du -sh . --exclude=.git | cut -f1)"
+
+      # Escribir por WhatsApp es la única acción de la página. Publicarla con el
+      # marcador de posición pierde todos los contactos, así que se avisa fuerte
+      # — pero no se bloquea: puede querer verse la página antes de tener el
+      # número.
+      - name: Avisar si el WhatsApp sigue siendo el de ejemplo
+        run: |
+          if grep -q 'wa.me/5210000000000' index.html; then
+            echo "::warning::La página se publica con el WhatsApp de ejemplo (wa.me/5210000000000). Nadie va a poder escribir."
+          fi
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - id: desplegar
+        uses: actions/deploy-pages@v4
