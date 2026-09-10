@@ -59,14 +59,18 @@ jobs:
             echo "::warning::La página se publica con el WhatsApp de ejemplo (wa.me/5210000000000). Nadie va a poder escribir."
           fi
 
-      # `enablement: true` prende Pages desde aquí la primera vez. Sin esto el
-      # primer despliegue falla con "Get Pages site failed", que no dice que
-      # Pages esté apagado, y hay que ir a prenderlo a mano en Settings.
-      # Prefiere que el repositorio se configure solo a que alguien recuerde un
-      # clic que se da una única vez en la vida.
+      # Pages hay que prenderlo A MANO la primera vez:
+      #   Settings -> Pages -> Build and deployment -> Source: GitHub Actions
+      #
+      # Se intentó automatizarlo con `enablement: true` y GitHub lo rechaza:
+      #   Create Pages site failed. Error: Resource not accessible by integration
+      # El `GITHUB_TOKEN` de un workflow no puede crear el sitio de Pages, por
+      # más que el workflow declare `pages: write`. Queda anotado para que nadie
+      # vuelva a intentar ese camino.
+      #
+      # Mientras no esté prendido, este paso falla con "Get Pages site failed",
+      # que NO dice que Pages esté apagado — es lo primero que hay que revisar.
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:

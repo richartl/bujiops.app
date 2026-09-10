@@ -16,9 +16,14 @@ python3 -m http.server 4500
 
 ## Cómo se publica
 
-Cualquier push a `main`. El workflow prende Pages solo la primera vez
-(`enablement: true`), así que no hay nada que configurar a mano, y antes de
-subir revisa dos cosas: que exista **cada imagen que el HTML referencia** —una
+Cualquier push a `main`. **La primera vez hay que prender Pages a mano**:
+*Settings → Pages → Build and deployment → Source:* **GitHub Actions** (no
+"Deploy from a branch": el workflow sube un artefacto). Automatizarlo no se
+puede — el token de Actions no tiene permiso para crear el sitio— y mientras no
+esté prendido el workflow falla con *"Get Pages site failed"*, que no dice que
+Pages esté apagado.
+
+Ya prendido, antes de subir revisa dos cosas: que exista **cada imagen que el HTML referencia** —una
 faltante deja un hueco blanco que nadie nota hasta que lo ve un prospecto— y si
 el número de WhatsApp sigue siendo el de ejemplo, avisa.
 
