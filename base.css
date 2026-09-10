@@ -169,6 +169,24 @@ footer a{color:var(--claro)}
 
 .par{margin-top:38px;display:grid;grid-template-columns:1fr 330px;gap:56px;align-items:center}
 .par-inv{grid-template-columns:330px 1fr}
+/* La columna de 330 es para un teléfono. Una captura de escritorio ahí sale
+   ilegible, así que las dos mitades pesan casi igual. */
+.par-ancho{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);align-items:center}
+
+/* Un segundo encabezado dentro de la misma banda: el mismo tema —el dinero—
+   contado en dos tiempos, sin partirlo en dos bandas oscuras seguidas. */
+.enc-2{margin-top:72px;padding-top:48px;border-top:1px solid rgba(148,163,184,.18)}
+
+/* Lista de puntos con el primer fragmento en negritas. Sin viñeta de disco:
+   la raya corta pesa menos y no compite con el texto. */
+.lista{margin-top:20px;padding:0;list-style:none;display:grid;gap:12px}
+.lista li{position:relative;padding-left:20px;font-size:16.5px;line-height:1.5;color:var(--t2)}
+.lista li::before{content:"";position:absolute;left:0;top:11px;width:10px;height:2px;
+  border-radius:2px;background:var(--am)}
+.lista li b{color:var(--t)}
+.osc .lista li{color:var(--claro)}
+.osc .lista li b{color:#fff}
+.lista-3{margin-top:26px;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
 
 /* Rubros: tres tableros del mismo producto con el trabajo de tres oficios. */
 .rubros{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -198,6 +216,9 @@ footer a{color:var(--claro)}
    el CRM en la mano de alguien, en un taller, con órdenes reales. */
 .enuso{margin-top:36px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:center}
 .enuso .marco{border-color:#1e293b}
+/* Sobre banda oscura el marco claro se ve como un halo alrededor de la
+   captura. Mismo trato que ya tenía `.enuso`. */
+.osc .marco{border-color:#1e293b;background:#0f172a}
 
 /* Precios: los planes del catálogo del producto, no números inventados. */
 .planes{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
@@ -235,6 +256,9 @@ footer a{color:var(--claro)}
   .dos-tel{grid-template-columns:1fr 1fr;gap:14px}
   .dos-tel figcaption{font-size:13.5px}
   .dos-tel figcaption span{display:none}
+  .par-ancho{grid-template-columns:1fr;gap:26px}
+  .enc-2{margin-top:44px;padding-top:30px}
+  .lista-3{grid-template-columns:1fr;gap:14px}
   .enuso{grid-template-columns:1fr;gap:26px}
   .planes{grid-template-columns:1fr}
   .temas{grid-template-columns:1fr}
