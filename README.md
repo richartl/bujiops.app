@@ -14,6 +14,14 @@ python3 -m http.server 4500
 # → http://localhost:4500
 ```
 
+## Cómo se publica
+
+Cualquier push a `main`. El workflow prende Pages solo la primera vez
+(`enablement: true`), así que no hay nada que configurar a mano, y antes de
+subir revisa dos cosas: que exista **cada imagen que el HTML referencia** —una
+faltante deja un hueco blanco que nadie nota hasta que lo ve un prospecto— y si
+el número de WhatsApp sigue siendo el de ejemplo, avisa.
+
 ## Lo que falta para que sirva
 
 **El número de WhatsApp.** Los dos botones apuntan a `wa.me/5210000000000`, que
