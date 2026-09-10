@@ -134,7 +134,14 @@ nav{display:flex;justify-content:space-between;align-items:center;padding-block:
 .cierre .fila{justify-content:center}
 footer{padding-block:26px;border-top:1px solid #1e293b;color:var(--claro);font-size:14.5px;
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-footer a{color:var(--claro)}
+/* El pie ya trae cuatro ligas. Dos cosas hacen falta y ninguna es cosmética:
+   que se envuelvan en un teléfono en vez de salirse, y que cada una mida sus
+   24px de alto — WCAG 2.2 `target-size`, que reprobó en 390 con las ligas
+   pegadas en un solo renglón. */
+footer a{color:var(--claro);text-decoration:underline;text-underline-offset:3px;
+  display:inline-block;padding-block:5px}
+footer a:hover{color:#fff}
+footer span:last-child{display:flex;flex-wrap:wrap;align-items:center;gap:0 7px}
 
 @media(max-width:860px){
   body{font-size:16px}
