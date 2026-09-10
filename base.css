@@ -147,7 +147,20 @@ footer a{color:var(--claro)}
 
 /* Héroe: banda oscura, y el tablero colgando del borde derecho. Colgar, y no
    caber, es lo que dice "hay más pantalla". */
-.hero{background:radial-gradient(1000px 520px at 82% -10%,#1e293b 0%,#020617 62%);overflow:hidden}
+/* El héroe ahora lleva FOTO DEL TALLER de fondo, que es el recurso que usan
+   todas las páginas del mercado y el único que no se podía fabricar. La foto
+   es del taller de un cliente real.
+
+   El velo no es decoración: sin él, el titular blanco cae sobre un pegboard
+   lleno de herramientas naranjas y no se lee. Va más opaco a la izquierda,
+   que es donde vive el texto, y se abre a la derecha para que el taller se
+   vea. */
+.hero{position:relative;overflow:hidden;background:#020617}
+.hero .foto{position:absolute;inset:0;z-index:0}
+.hero .foto img{width:100%;height:100%;object-fit:cover;object-position:38% 42%}
+.hero .velo{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(100deg,rgba(2,6,23,.96) 0%,rgba(2,6,23,.93) 38%,rgba(2,6,23,.72) 66%,rgba(2,6,23,.55) 100%)}
+.hero .w{position:relative;z-index:2}
 .hero .reja{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:48px;
   align-items:center;padding-block:34px 76px}
 .hero .rotulo{margin-bottom:22px}
@@ -167,6 +180,20 @@ footer a{color:var(--claro)}
 .chips li{list-style:none;border:1px solid var(--linea);border-radius:999px;padding:8px 15px;
   font-size:15.5px;font-weight:600;color:var(--t2);background:#fff}
 .osc .chips li{border-color:#1e293b;color:#e2e8f0;background:#0f172a}
+
+/* Servicios y refacciones: dos teléfonos lado a lado, porque lo que hay que
+   entender es que el desglose que captura el taller es EL MISMO que ve el
+   cliente. Uno solo no lo diría. */
+.dos-tel{margin-top:36px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;
+  max-width:760px}
+.dos-tel figcaption{margin-top:12px;font-size:15px;font-weight:700}
+.dos-tel figcaption span{display:block;font-weight:500;color:var(--t3);font-size:14px;margin-top:3px}
+.osc .dos-tel figcaption span{color:var(--claro)}
+
+/* La foto del producto usándose de verdad. Es la única del mundo donde se ve
+   el CRM en la mano de alguien, en un taller, con órdenes reales. */
+.enuso{margin-top:36px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:center}
+.enuso .marco{border-color:#1e293b}
 
 /* Precios: los planes del catálogo del producto, no números inventados. */
 .planes{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
@@ -201,6 +228,10 @@ footer a{color:var(--claro)}
   .par,.par-inv{grid-template-columns:1fr;gap:28px}
   .par .tel,.par-inv .tel{margin-inline:auto}
   .rubros{grid-template-columns:1fr;gap:26px}
+  .dos-tel{grid-template-columns:1fr 1fr;gap:14px}
+  .dos-tel figcaption{font-size:13.5px}
+  .dos-tel figcaption span{display:none}
+  .enuso{grid-template-columns:1fr;gap:26px}
   .planes{grid-template-columns:1fr}
   .temas{grid-template-columns:1fr}
 }

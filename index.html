@@ -1,7 +1,9 @@
+<!doctype html>
+<html lang="es">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BujiOps — el trabajo de tu taller, en una sola pantalla</title>
-<meta name="description" content="CRM para talleres de servicio: motos, bicicletas, costura, instrumentos, carpintería, celulares. Lleva el control del trabajo y tu cliente sigue su equipo desde su teléfono.">
+<title>BujiOps — deja el cuaderno: tu taller en una sola pantalla</title>
+<meta name="description" content="Sistema de órdenes para talleres chicos: motos, bicicletas, costura, instrumentos, carpintería, celulares. Servicios, refacciones y precios en un solo lugar, y tu cliente los ve desde su teléfono.">
 
 <!-- La tarjeta que se ve al pegar el link en WhatsApp, que es por donde llega.
      Sin esto el link sale pelón, y ese es el primer contacto con el producto:
@@ -15,8 +17,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_MX">
 <meta property="og:site_name" content="BujiOps">
-<meta property="og:title" content="El trabajo de tu taller, en una sola pantalla">
-<meta property="og:description" content="Qué entró, quién lo está atendiendo, qué lleva días esperando una pieza y cuánto dinero hay parado en cada estado. Para talleres de motos, bicis, costura, instrumentos, carpintería y celulares.">
+<meta property="og:title" content="Deja el cuaderno: tu taller en una sola pantalla">
+<meta property="og:description" content="Qué entró, qué se le está haciendo, qué refacción falta y cuánto va a costar. Y tu cliente lo ve desde su teléfono, sin llamarte. Para talleres de motos, bicis, costura, instrumentos, carpintería y celulares.">
 <meta property="og:url" content="https://richartl.github.io/bujiops.app/">
 <meta property="og:image" content="https://richartl.github.io/bujiops.app/img/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -29,6 +31,13 @@
 
 <!-- ══ Héroe ══════════════════════════════════════════════════════════════ -->
 <header class="hero osc">
+  <div class="foto"><picture>
+    <!-- En el teléfono esta foto se pinta a 390 px y bajo un velo de 0.93: los
+         1600 px del escritorio serían 93 KB para algo que casi no se ve. -->
+    <source media="(max-width:640px)" srcset="img/taller-hero--movil.webp" width="760" height="427">
+    <img src="img/taller-hero.webp" alt="Un taller de instrumentos: el banco de trabajo, el tablero de herramientas y una guitarra en el soporte" width="1280" height="719" fetchpriority="high">
+  </picture></div>
+  <div class="velo"></div>
   <div class="w"><nav>
     <span class="marca"><span class="chispa"></span>BujiOps</span>
     <a class="nav-sec" href="#precios">Precios</a>
@@ -36,10 +45,10 @@
 
   <div class="w reja">
     <div>
-      <span class="rotulo">CRM para talleres de servicio</span>
-      <h1>El trabajo de tu taller, <em>en una sola pantalla</em>.</h1>
-      <p class="entrada">Qué entró, quién lo está atendiendo, qué lleva días esperando
-        una pieza y cuánto dinero hay parado en cada estado.</p>
+      <span class="rotulo">Órdenes y seguimiento para talleres chicos</span>
+      <h1>Deja el cuaderno: tu taller, <em>en una sola pantalla</em>.</h1>
+      <p class="entrada">Qué entró, qué se le está haciendo, qué refacción falta y
+        cuánto va a costar. Y tu cliente lo ve desde su teléfono, sin llamarte.</p>
       <div class="fila">
         <a class="btn" href="https://wa.me/525618622447">Escríbenos por WhatsApp</a>
         <a class="btn2" href="#rubros">Ver cómo funciona</a>
@@ -58,8 +67,8 @@
           <span class="luz" style="background:#34d399"></span>
           <span class="titulo">Taller Santa Cecilia — Tablero</span>
         </div>
-        <picture><source media="(max-width:640px)" srcset="img/real-tablero--bujia--movil.webp" width="390" height="603">
-        <img src="img/real-tablero--bujia.webp" alt="El tablero del taller con cuatro columnas: Recibido, En proceso, Esperando pieza y Listo, cada una con su conteo de equipos y su total en dinero" width="1780" height="627"></picture>
+        <picture><source media="(max-width:640px)" srcset="img/real-tablero--bujia--movil.webp" width="900" height="1754">
+        <img src="img/real-tablero--bujia.webp" alt="El tablero del taller con cuatro columnas: Recibido, En proceso, Esperando pieza y Listo, cada una con su conteo, su total en dinero y la foto de cada instrumento" width="2000" height="921"></picture>
       </div>
     </div>
   </div>
@@ -91,13 +100,34 @@
   </div>
 </section>
 
-<!-- ══ El cliente ═════════════════════════════════════════════════════════ -->
-<section class="banda papel">
+<!-- ══ Servicios, refacciones y precios ═══════════════════════════════════ -->
+<section class="banda papel" id="trabajo">
   <div class="w">
     <div class="enc">
-      <h2>Y tu cliente <em>deja de hablarte para preguntar</em>.</h2>
-      <p>Cuando mueves la tarjeta, él lo ve. Le mandas un link por WhatsApp una vez
-        y ya no vuelve a llamar para saber cómo va.</p>
+      <h2>Cada servicio y cada refacción, <em>con su precio</em>.</h2>
+      <p>Le vas agregando lo que lleva —una calibración, un juego de cuerdas, la
+        pieza que hubo que pedir— con su costo. El total se arma solo.</p>
+    </div>
+    <div class="dos-tel">
+      <figure><div class="tel"><img loading="lazy" decoding="async" src="img/tel-cuenta.webp" alt="La pestaña de servicios en el teléfono del cliente: Calibración $500, el desglose de servicios y refacciones, y su saldo" width="1170" height="2070"></div>
+        <figcaption>Los servicios<span>Qué se le está haciendo, y cuánto cuesta cada cosa</span></figcaption></figure>
+      <figure><div class="tel"><img loading="lazy" decoding="async" src="img/tel-refacciones.webp" alt="La pestaña de refacciones: Potenciómetro, 1 pieza, aprobada, $400, y el costo total del instrumento" width="1170" height="1680"></div>
+        <figcaption>Las refacciones<span>Cuál falta, cuántas piezas y si el cliente ya la aprobó</span></figcaption></figure>
+    </div>
+    <p class="dice" style="margin-top:26px"><strong>Y no es una pantalla tuya que
+      luego le explicas: es la misma que él abre.</strong> El desglose que capturas
+      en el taller es exactamente el que ve en su teléfono, con el total y lo que
+      lleva pagado. Por eso deja de llamar a preguntar cuánto va.</p>
+  </div>
+</section>
+
+<!-- ══ El cliente ═════════════════════════════════════════════════════════ -->
+<section class="banda">
+  <div class="w">
+    <div class="enc">
+      <h2>Y el link lleva <em>tu nombre, no el nuestro</em>.</h2>
+      <p>Se lo mandas por WhatsApp una vez. No instala nada, no se registra y no
+        tiene contraseña que recordar.</p>
     </div>
     <div class="par">
       <div>
@@ -127,7 +157,10 @@
         <p class="dice" style="margin-top:10px">Cuando alguien reclama, no es tu palabra
           contra la suya. Está la fecha del ingreso, el diagnóstico y el pago, en la
           misma línea de tiempo que él ya vio.</p>
-        <div class="marco" style="margin-top:22px"><img loading="lazy" decoding="async" src="img/pieza-tarjeta.webp" alt="Una tarjeta del tablero con el desglose de servicios, refacciones y subtotal" width="418" height="186"></div>
+        <div class="marco" style="margin-top:22px"><img loading="lazy" decoding="async" src="img/taller-mano.webp" alt="Un teléfono con el tablero de BujiOps abierto, sostenido dentro de un taller de instrumentos, con 140 órdenes y $111,020 entregados" width="1200" height="1120"></div>
+        <p class="dice" style="margin-top:14px;font-size:15px;color:var(--claro)">Un taller de
+          verdad, con sus órdenes de verdad. El nombre del cliente va tapado a
+          propósito: es suyo, no nuestro.</p>
       </div>
     </div>
   </div>
@@ -179,8 +212,8 @@
         igual de bien en los seis.</p>
     </div>
     <div class="temas">
-      <figure><div class="marco"><img loading="lazy" decoding="async" src="img/tema--cielo.webp" alt="Dos columnas del tablero con el tema claro: Recibido y En proceso, con sus tarjetas" width="880" height="627"></div><figcaption>Cielo</figcaption></figure>
-      <figure><div class="marco"><img loading="lazy" decoding="async" src="img/tema--bujia.webp" alt="Las mismas dos columnas del tablero con el tema oscuro" width="880" height="627"></div><figcaption>Bujía</figcaption></figure>
+      <figure><div class="marco"><img loading="lazy" decoding="async" src="img/tema--cielo.webp" alt="Dos columnas del tablero con el tema claro: Recibido y En proceso, con sus tarjetas y las fotos de los instrumentos" width="1400" height="1432"></div><figcaption>Cielo</figcaption></figure>
+      <figure><div class="marco"><img loading="lazy" decoding="async" src="img/tema--bujia.webp" alt="Las mismas dos columnas del tablero con el tema oscuro" width="1400" height="1432"></div><figcaption>Bujía</figcaption></figure>
     </div>
   </div>
 </section>
@@ -202,3 +235,5 @@
   <span>BujiOps · CRM para talleres de servicio</span>
   <span><a href="https://wa.me/525618622447">WhatsApp</a> · <a href="mailto:bujiopsapp@gmail.com">Correo</a></span>
 </footer></div></div>
+
+</html>
