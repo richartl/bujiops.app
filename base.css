@@ -187,6 +187,9 @@ footer a{color:var(--claro)}
 .osc .lista li{color:var(--claro)}
 .osc .lista li b{color:#fff}
 .lista-3{margin-top:26px;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+/* En el cierre la lista va antes de los botones y centrada como el resto del
+   bloque, así que necesita su propio aire y un tope de ancho. */
+.lista-cierre{margin:30px auto 34px;max-width:920px;text-align:left}
 
 /* Rubros: tres tableros del mismo producto con el trabajo de tres oficios. */
 .rubros{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
