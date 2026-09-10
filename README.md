@@ -1,6 +1,6 @@
 # La página pública de BujiOps
 
-**BujiOps** es un CRM para talleres de servicio: motos, bicicletas, máquinas de
+**BujiOps** es el sistema donde un taller controla sus órdenes y reparaciones: motos, bicicletas, máquinas de
 coser, instrumentos musicales, carpintería, celulares y cómputo.
 
 Este repositorio es sólo la página que explica el producto. Una sola página
@@ -51,7 +51,7 @@ mayoría de los números; si alguno no abre la conversación, se prueba con él.
 ## Por qué está hecha así
 
 - **Todas las pantallas son capturas del producto corriendo**, no maquetas. Se
-  generan montando los componentes reales del CRM; el detalle del método vive
+  generan montando los componentes reales del producto; el detalle del método vive
   en el repositorio del producto. Una maqueta enseña lo que el diseñador quiso,
   no lo que el producto hace.
 - **Los nombres, folios y montos son inventados.** Nunca datos de un taller real
@@ -66,7 +66,7 @@ mayoría de los números; si alguno no abre la conversación, se prueba con él.
 - **Imágenes WebP** y `loading="lazy"` debajo del pliegue. En el teléfono la
   página **carga con 182 KB**; recorrerla entera son ~640 KB, que sólo se paga
   si alguien se queda a verla toda.
-- **La paleta y los contrastes son los del CRM.** Quien entra por aquí tiene que
+- **La paleta y los contrastes son los del producto.** Quien entra por aquí tiene que
   aterrizar en el producto sin sentir que cambió de empresa. El mínimo del texto
   secundario **cambia con la superficie**: en fondo claro es `slate-500`, sobre
   `slate-900/950` es `slate-400`. El par se invierte y usar el mismo en las dos
