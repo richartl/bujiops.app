@@ -33,7 +33,15 @@ body{
   color:var(--t);background:#fff;font-size:17px;line-height:1.5;
   -webkit-font-smoothing:antialiased;
 }
-img{max-width:100%;display:block}
+/* `height:auto` NO es opcional. Los atributos `width`/`height` del `<img>`
+   valen como CSS: `max-width:100%` encoge el ancho y la altura se queda
+   clavada en el atributo, así que la imagen sale ESTIRADA. El tablero del
+   héroe salía a 951×627 cuando le tocaban 951×335 — casi el doble de alto—, y
+   la comparación de temas, a más del triple.
+   `width:100%` en los marcos es aparte: sin él la imagen se queda en el ancho
+   de su atributo y deja el marco a medio llenar. */
+img{max-width:100%;height:auto;display:block}
+.ventana img,.tel img,.marco img{width:100%}
 .w{max-width:1160px;margin:0 auto;padding:0 24px}
 
 /* ── Ritmo de contraste ──────────────────────────────────────────────────
@@ -140,11 +148,11 @@ footer a{color:var(--claro)}
 /* Héroe: banda oscura, y el tablero colgando del borde derecho. Colgar, y no
    caber, es lo que dice "hay más pantalla". */
 .hero{background:radial-gradient(1000px 520px at 82% -10%,#1e293b 0%,#020617 62%);overflow:hidden}
-.hero .reja{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:48px;
+.hero .reja{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:48px;
   align-items:center;padding-block:34px 76px}
 .hero .rotulo{margin-bottom:22px}
 .hero h1{max-width:15ch}
-.hero .escena{margin-right:-20vw}
+.hero .escena{margin-right:-30vw}
 
 .par{margin-top:38px;display:grid;grid-template-columns:1fr 330px;gap:56px;align-items:center}
 .par-inv{grid-template-columns:330px 1fr}
@@ -182,7 +190,13 @@ footer a{color:var(--claro)}
 .osc .temas figcaption{color:var(--claro)}
 
 @media(max-width:860px){
-  .hero .reja{grid-template-columns:1fr;gap:32px;padding-block:20px 46px}
+  .hero .reja{grid-template-columns:1fr;gap:26px;padding-block:16px 42px}
+  /* Los dos botones no caben en una fila y se apilan, y entre eso y las tres
+     pruebas el producto se sale del primer vistazo. El secundario sólo hace
+     scroll a la sección de abajo: hacer scroll ya hace eso. */
+  .hero .btn2{display:none}
+  .hero .fila{margin-top:24px}
+  .hero .pruebas{margin-top:18px;gap:7px 16px;font-size:14.5px}
   .hero .escena{margin-right:-16px}
   .par,.par-inv{grid-template-columns:1fr;gap:28px}
   .par .tel,.par-inv .tel{margin-inline:auto}
