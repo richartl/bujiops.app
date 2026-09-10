@@ -186,7 +186,11 @@ footer a{color:var(--claro)}
    cliente. Uno solo no lo diría. */
 .dos-tel{margin-top:36px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;
   max-width:760px}
-.dos-tel figcaption{margin-top:12px;font-size:15px;font-weight:700}
+/* Los dos teléfonos no miden lo mismo —una pestaña trae más renglones que la
+   otra—, así que sin esto cada pie cae a una altura distinta y la pareja se
+   lee desalineada. `margin-top:auto` los baja a la misma línea. */
+.dos-tel figure{display:flex;flex-direction:column}
+.dos-tel figcaption{margin-top:auto;padding-top:12px;font-size:15px;font-weight:700}
 .dos-tel figcaption span{display:block;font-weight:500;color:var(--t3);font-size:14px;margin-top:3px}
 .osc .dos-tel figcaption span{color:var(--claro)}
 
