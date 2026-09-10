@@ -231,8 +231,11 @@ footer span:last-child{display:flex;flex-wrap:wrap;align-items:center;gap:0 7px}
 .osc .marco{border-color:#1e293b;background:#0f172a}
 
 /* Precios: los planes del catálogo del producto, no números inventados. */
-.planes{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
-.plan{border:1px solid var(--linea);border-radius:16px;padding:26px;background:#fff}
+.planes{margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:start}
+/* Cuatro planes no caben legibles en una laptop de 13": a partir de aquí van
+   en dos filas de dos antes de apilarse del todo en el teléfono. */
+@media(max-width:1100px){.planes{grid-template-columns:repeat(2,1fr);gap:20px}}
+.plan{border:1px solid var(--linea);border-radius:16px;padding:22px;background:#fff}
 .plan.elegido{border-color:var(--am);box-shadow:0 20px 44px -24px rgba(245,158,11,.7);position:relative}
 .plan .cinta{position:absolute;top:-13px;left:26px;background:var(--am);color:var(--t);
   font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
